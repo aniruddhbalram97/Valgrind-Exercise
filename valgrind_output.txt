@@ -1,0 +1,43 @@
+#Valgrind Output before fixing errors
+==80867== Memcheck, a memory error detector
+==80867== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==80867== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==80867== Command: ./app/shell-app
+==80867== 
+Averaged sensor reading: 10
+==80867== Conditional jump or move depends on uninitialised value(s)
+==80867==    at 0x10A31B: main (main.cpp:9)
+==80867== 
+==80867== 
+==80867== HEAP SUMMARY:
+==80867==     in use at exit: 44 bytes in 2 blocks
+==80867==   total heap usage: 4 allocs, 2 frees, 73,772 bytes allocated
+==80867== 
+==80867== LEAK SUMMARY:
+==80867==    definitely lost: 24 bytes in 1 blocks
+==80867==    indirectly lost: 20 bytes in 1 blocks
+==80867==      possibly lost: 0 bytes in 0 blocks
+==80867==    still reachable: 0 bytes in 0 blocks
+==80867==         suppressed: 0 bytes in 0 blocks
+==80867== Rerun with --leak-check=full to see details of leaked memory
+==80867== 
+==80867== Use --track-origins=yes to see where uninitialised values come from
+==80867== For lists of detected and suppressed errors, rerun with: -s
+==80867== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+#Valgrind output after error-correction:
+==84804== Memcheck, a memory error detector
+==84804== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==84804== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==84804== Command: ./app/shell-app
+==84804== 
+Averaged sensor reading: 10
+==84804== 
+==84804== HEAP SUMMARY:
+==84804==     in use at exit: 0 bytes in 0 blocks
+==84804==   total heap usage: 4 allocs, 4 frees, 73,772 bytes allocated
+==84804== 
+==84804== All heap blocks were freed -- no leaks are possible
+==84804== 
+==84804== For lists of detected and suppressed errors, rerun with: -s
+==84804== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
